@@ -68,7 +68,13 @@ map.on('click', function (e) {
         // Popuplate the popup and set its coordinates
         // based on the feature found.
         popup.setLngLat(feature.geometry.coordinates)
-            .setHTML("<h3>" + feature.properties["Name"] + "</h3>" + "<b>Address: </b>" + feature.properties.address)
+            .setHTML("<h3>" + feature.properties["Name"] + "</h3>"
+                + feature.properties.address + "<br/>"
+                + feature.properties.city + ", " + feature.properties.state + " " + feature.properties.zip + "<br/>"
+                + "<b>Grades: </b>" + feature.properties.grades + "<br/>"
+                + "Opens: " + feature.properties.open + "<br/>"
+                + "Closes: " + feature.properties.close + "<br/>"
+                )
             .addTo(map);
     });
 });
