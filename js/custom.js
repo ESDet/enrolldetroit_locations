@@ -30,6 +30,7 @@ map.on('load', function () {
 
         // Add a layer for this symbol type if it hasn't been added already.
         if (!map.getLayer(layerID)) {
+            if (layerID.length == 12) {
             map.addLayer({
                 "id": layerID,
                 "interactive": true,
@@ -38,12 +39,25 @@ map.on('load', function () {
                 "layout": {
                     "icon-image": symbol,
                     "icon-allow-overlap": true,
-                    "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-                    "text-size": 12,
-                    "text-offset": [0, 0.6],
                 },
                 "filter": ["==", "marker-symbol", symbol]
-            });
+            });} else {
+            map.addLayer({
+                "id": layerID,
+                "interactive": true,
+                "type": "symbol",
+                "source": "markers",
+                "layout": {
+                    "icon-image": symbol,
+                    "icon-allow-overlap": true,
+                    "text-field": "{Name}",
+                    "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+                    "text-size": 12,
+                    "text-offset": [0, 2.0],
+                },
+                "filter": ["==", "marker-symbol", symbol]
+            });    
+            }
 
             // Add checkbox and label elements for the layer.
             var input = document.createElement('input');

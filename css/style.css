@@ -4,14 +4,14 @@ body { margin:0; padding:0; }
 
 /* filter button styling adapted from https://www.mapbox.com/mapbox-gl-js/example/filter-markers/ */
 .filter-group {
-    font: 24px/40px 'Open Sans', Arial, Helvetica, sans-serif;
+    font: 18px/30px 'Open Sans', Arial, Helvetica, sans-serif;
     font-weight: 600;
     position: absolute;
     top: 10px;
     right: 10px;
     z-index: 1;
     border-radius: 3px;
-    width: 240px;
+    width: 180px;
     color: #fff;
 }
 
